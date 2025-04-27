@@ -2,7 +2,50 @@
 
 A full-stack web application built with Go (Gin) backend, NuxtJS frontend, and PostgreSQL database.
 
-personal-web/ ├── backend/ # Go Gin backend │ ├── cmd/ # Main applications of the project │ │ └── api/ # API server entry point │ │ └── main.go │ ├── internal/ # Private application code │ │ ├── config/ # Configuration │ │ ├── handlers/ # HTTP handlers │ │ ├── middleware/ # HTTP middleware │ │ ├── models/ # Database models │ │ ├── repository/ # Database operations │ │ └── services/ # Business logic │ ├── pkg/ # Public libraries that can be used by external applications │ ├── migrations/ # Database migrations │ ├── tests/ # Test files │ ├── .env # Environment variables │ ├── go.mod # Go modules file │ └── go.sum # Go modules checksum │ ├── frontend/ # NuxtJS frontend │ ├── assets/ # Uncompiled assets (fonts, images, etc.) │ ├── components/ # Vue components │ ├── composables/ # Composable functions │ ├── layouts/ # Page layouts │ ├── pages/ # Application views and routes │ ├── plugins/ # Vue plugins │ ├── public/ # Static files │ ├── stores/ # State management (if using Pinia) │ ├── types/ # TypeScript type definitions │ ├── utils/ # Utility functions │ ├── .env # Environment variables │ ├── nuxt.config.ts # Nuxt configuration │ └── package.json # Node dependencies │ ├── docker/ # Docker configuration files │ ├── backend/ # Backend Dockerfile │ ├── frontend/ # Frontend Dockerfile │ └── postgres/ # PostgreSQL initialization scripts │ ├── .gitignore # Git ignore file ├── docker-compose.yml # Docker compose configuration ├── README.md # Project documentation └── Makefile # Build and deployment commands
+- **personal-web/**  
+  - **backend/** _Go Gin backend_  
+    - **cmd/** _Main applications of the project_  
+      - **api/** _API server entry point_  
+        - `main.go`  
+    - **internal/** _Private application code_  
+      - **config/** _Configuration_  
+      - **handlers/** _HTTP handlers_  
+      - **middleware/** _HTTP middleware_  
+      - **models/** _Database models_  
+      - **repository/** _Database operations_  
+      - **services/** _Business logic_  
+    - **pkg/** _Public libraries that can be used by external applications_  
+    - **migrations/** _Database migrations_  
+    - **tests/** _Test files_  
+    - `.env` _Environment variables_  
+    - `go.mod` _Go modules file_  
+    - `go.sum` _Go modules checksum_  
+
+  - **frontend/** _NuxtJS frontend_  
+    - **assets/** _Uncompiled assets (fonts, images, etc.)_  
+    - **components/** _Vue components_  
+    - **composables/** _Composable functions_  
+    - **layouts/** _Page layouts_  
+    - **pages/** _Application views and routes_  
+    - **plugins/** _Vue plugins_  
+    - **public/** _Static files_  
+    - **stores/** _State management (if using Pinia)_  
+    - **types/** _TypeScript type definitions_  
+    - **utils/** _Utility functions_  
+    - `.env` _Environment variables_  
+    - `nuxt.config.ts` _Nuxt configuration_  
+    - `package.json` _Node dependencies_  
+
+- **docker/** _Docker configuration files_  
+  - **backend/** _Backend Dockerfile_  
+  - **frontend/** _Frontend Dockerfile_  
+  - **postgres/** _PostgreSQL initialization scripts_  
+
+- `.gitignore` _Git ignore file_  
+- `docker-compose.yml` _Docker compose configuration_  
+- `README.md` _Project documentation_  
+- `Makefile` _Build and deployment commands_
+
 
 ## Tech Stack
 
