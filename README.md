@@ -100,4 +100,3 @@ A full-stack web application built with Go (Gin) backend, NuxtJS frontend, and P
 
 ## License
 
-[Your chosen license]
