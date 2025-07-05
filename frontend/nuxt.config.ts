@@ -18,6 +18,9 @@ export default defineNuxtConfig({
       ]
     }
   },
+  plugins: [
+    '~/plugins/auth.client.js',
+  ],
   runtimeConfig: {
     public: {
       apiBase: process.env.NUXT_PUBLIC_API_BASE || 'http://localhost:8080'

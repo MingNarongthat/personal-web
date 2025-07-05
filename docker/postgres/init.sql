@@ -5,14 +5,15 @@ CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 CREATE TABLE IF NOT EXISTS users (
     id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
     email VARCHAR(255) NOT NULL UNIQUE,
-    password_hash VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL,
     name VARCHAR(255) NOT NULL,
+    role VARCHAR(50) NOT NULL DEFAULT 'user',
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
 
--- Create posts table
-CREATE TABLE IF NOT EXISTS posts (
+-- Create articles table
+CREATE TABLE IF NOT EXISTS articles (
     id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
     title VARCHAR(255) NOT NULL,
     content TEXT NOT NULL,
@@ -28,14 +29,14 @@ CREATE TABLE IF NOT EXISTS tags (
     created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 );
 
--- Create posts_tags table for many-to-many relationship
-CREATE TABLE IF NOT EXISTS posts_tags (
-    post_id UUID REFERENCES posts(id) ON DELETE CASCADE,
+-- Create articles_tags table for many-to-many relationship
+CREATE TABLE IF NOT EXISTS articles_tags (
+    article_id UUID REFERENCES articles(id) ON DELETE CASCADE,
     tag_id UUID REFERENCES tags(id) ON DELETE CASCADE,
-    PRIMARY KEY (post_id, tag_id)
+    PRIMARY KEY (article_id, tag_id)
 );
 
 -- Create index for common queries
-CREATE INDEX idx_posts_user_id ON posts(user_id);
-CREATE INDEX idx_posts_created_at ON posts(created_at);
+CREATE INDEX idx_articles_user_id ON articles(user_id);
+CREATE INDEX idx_articles_created_at ON articles(created_at);
 CREATE INDEX idx_tags_name ON tags(name);

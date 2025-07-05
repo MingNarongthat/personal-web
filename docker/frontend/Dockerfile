@@ -21,12 +21,7 @@ FROM node:18-alpine
 WORKDIR /app
 
 # Copy built application
-COPY --from=builder /app/.output ./
-COPY --from=builder /app/.nuxt ./
-COPY --from=builder /app/package*.json ./
-
-# Install production dependencies
-RUN npm install --production
+COPY --from=builder /app/.output ./.output
 
 # Expose port
 EXPOSE 3000

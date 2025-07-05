@@ -1,5 +1,5 @@
 # Build stage
-FROM golang:1.24.4-alpine AS builder
+FROM golang:1.23-alpine AS builder
 
 WORKDIR /app
 
@@ -16,28 +16,18 @@ RUN go mod download
 COPY . .
 
 # Build the application
-RUN CGO_ENABLED=0 GOOS=linux go build -o main .
-
-# Debug: Print contents of /app after build
-RUN ls -la
+RUN CGO_ENABLED=0 GOOS=linux go build -o main ./cmd/api
 
 # Final stage
 FROM alpine:latest
 
 WORKDIR /app
 
-# Debug: Print contents of /app before copying
-RUN ls -la
-
 # Copy the binary from builder
 COPY --from=builder /app/main .
-COPY --from=builder /app/.env .
-
-# Debug: Print contents of /app after copying
-RUN ls -la
 
 # Expose port
 EXPOSE 8080
 
-# Run the binary
-CMD ["./main"]
+# Command to run
+CMD ["./main"] 
